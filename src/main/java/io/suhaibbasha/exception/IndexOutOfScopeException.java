@@ -1,4 +1,4 @@
-package io.suhaibbasha.exception.datastructure;
+package io.suhaibbasha.exception;
 
 public class IndexOutOfScopeException extends RuntimeException {
 

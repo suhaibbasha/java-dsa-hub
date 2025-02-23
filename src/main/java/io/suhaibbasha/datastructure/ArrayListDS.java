@@ -2,7 +2,7 @@ package io.suhaibbasha.datastructure;
 
 import java.util.Arrays;
 
-import io.suhaibbasha.exception.datastructure.IndexOutOfScopeException;
+import io.suhaibbasha.exception.IndexOutOfScopeException;
 
 public class ArrayListDS<T> {
 
@@ -77,6 +77,24 @@ public class ArrayListDS<T> {
         System.out.println(displayString);
     }
 
+    public boolean contains(T entry) {
+        for (int i = 0; i < pointer; i++) {
+            if (data[i].equals(entry)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int indexOf(T entry) {
+        for (int i = 0; i < pointer; i++) {
+            if (data[i].equals(entry)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public String join(String delimiter) {
         StringBuilder displayString = new StringBuilder();
         for (int i = 0; i < pointer; i++) {
@@ -94,8 +112,6 @@ public class ArrayListDS<T> {
         System.arraycopy(this.data, 0, newList.data, 0, this.pointer);
         System.arraycopy(list.data, 0, newList.data, this.pointer, list.pointer);
         newList.pointer = this.pointer + list.pointer;
-        this.data = newList.data;
-        this.pointer = newList.pointer;
         return newList;
     }
 
@@ -111,4 +127,5 @@ public class ArrayListDS<T> {
         T[] newData = Arrays.copyOf(data, data.length + 1);
         data = newData;
     }
+    
 }
