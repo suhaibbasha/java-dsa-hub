@@ -134,7 +134,7 @@ public class ArrayListDS<T> implements IterableInterface<T>{
         return "ArrayListDS{" +
                 "data=" + Arrays.toString(data) +
                 ", size=" + pointer +
-                '}';
+                "}";
     }
 
     private void createMoreRoom() {

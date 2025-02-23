@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class LinkedListDSTest {
 
     @Test
-    public void init_createLinkedList_returnsAnLinkedList() {
+    public void init_createLinkedList_returnsALinkedList() {
         LinkedListDS<Integer> linkedListDS = new LinkedListDS<>();
         assert linkedListDS instanceof LinkedListDS;
     }

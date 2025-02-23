@@ -208,7 +208,7 @@ public class LinkedListDS<T> implements IterableInterface<T> {
                 "head=" + head +
                 ", tail=" + tail +
                 ", size=" + size +
-                '}';
+                "}";
     }
 
     private class Node<E> {
@@ -224,7 +224,7 @@ public class LinkedListDS<T> implements IterableInterface<T> {
         public String toString() {
             return "Node{" +
                     "data=" + data +
-                    '}';
+                    "}";
         }
     }
     
