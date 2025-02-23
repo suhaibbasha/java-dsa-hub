@@ -1,4 +1,4 @@
-package io.suhaibbasha.java_dsa_hub;
+package io.suhaibbasha;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
