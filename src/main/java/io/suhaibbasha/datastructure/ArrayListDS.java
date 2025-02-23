@@ -3,22 +3,26 @@ package io.suhaibbasha.datastructure;
 import java.util.Arrays;
 
 import io.suhaibbasha.exception.IndexOutOfScopeException;
+import io.suhaibbasha.generic.IterableInterface;
 
-public class ArrayListDS<T> {
+public class ArrayListDS<T> implements IterableInterface<T>{
 
     private T[] data;
     private int pointer;
 
+    @SuppressWarnings("unchecked")
     public ArrayListDS() {
         data = (T[]) new Object[0];
         pointer = 0;
     }
 
+    @Override
     public void add(T entry) {
         createMoreRoom();
         data[pointer++] = entry;
     }
 
+    @Override
     public T get(int index) {
         if (index >= pointer) {
             throw new IndexOutOfScopeException("Index " + index + " is out of range..");
@@ -26,6 +30,7 @@ public class ArrayListDS<T> {
         return data[index];
     }
 
+    @Override
     public void remove(int index) {
         if (index >= pointer) {
             throw new IndexOutOfScopeException("Index " + index + " is out of range..");
@@ -34,6 +39,7 @@ public class ArrayListDS<T> {
         pointer--;
     }
 
+    @Override
     public void set(int index, T entry) {
         if (index >= pointer) {
             throw new IndexOutOfScopeException("Index " + index + " is out of range..");
@@ -42,6 +48,7 @@ public class ArrayListDS<T> {
         data[index] = entry;
     }
 
+    @Override
     public void insert(int index, T entry) {
         if (index > pointer) {
             throw new IndexOutOfScopeException("Index " + index + " is out of range..");
@@ -52,19 +59,24 @@ public class ArrayListDS<T> {
         pointer++;
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
     public void clear() {
         data = (T[]) new Object[0];
         pointer = 0;
     }
 
+    @Override
     public boolean isEmpty() {
         return pointer == 0;
     }
 
+    @Override
     public int size() {
         return pointer;
     }
 
+    @Override
     public void display() {
         StringBuilder displayString = new StringBuilder("[");
         for (int i = 0; i < pointer; i++) {
@@ -77,6 +89,7 @@ public class ArrayListDS<T> {
         System.out.println(displayString);
     }
 
+    @Override
     public boolean contains(T entry) {
         for (int i = 0; i < pointer; i++) {
             if (data[i].equals(entry)) {
@@ -86,6 +99,7 @@ public class ArrayListDS<T> {
         return false;
     }
 
+    @Override
     public int indexOf(T entry) {
         for (int i = 0; i < pointer; i++) {
             if (data[i].equals(entry)) {

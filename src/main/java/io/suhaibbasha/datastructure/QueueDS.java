@@ -1,5 +1,5 @@
 package io.suhaibbasha.datastructure;
 
-public class QueueDS {
+public class QueueDS<T> {
     
 }

@@ -1,8 +1,9 @@
 package io.suhaibbasha.datastructure;
 
 import io.suhaibbasha.exception.IndexOutOfScopeException;
+import io.suhaibbasha.generic.IterableInterface;
 
-public class LinkedListDS<T> {
+public class LinkedListDS<T> implements IterableInterface<T> {
 
     private Node<T> head;
     private Node<T> tail;
@@ -14,6 +15,7 @@ public class LinkedListDS<T> {
         this.size = 0;
     }
 
+    @Override
     public void add(T entry) {
         Node<T> newNode = new Node<>(entry);
         if (head == null) {
@@ -27,6 +29,7 @@ public class LinkedListDS<T> {
         size++;
     }
 
+    @Override
     public T get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfScopeException("Index out of scope: " + index);
@@ -40,6 +43,7 @@ public class LinkedListDS<T> {
         return currentNode.data;
     }
 
+    @Override
     public void remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfScopeException("Index out of scope: " + index);
@@ -69,6 +73,7 @@ public class LinkedListDS<T> {
         size--;
     }
 
+    @Override
     public void set(int index, T entry) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfScopeException("Index out of scope: " + index);
@@ -83,6 +88,7 @@ public class LinkedListDS<T> {
         remove(index);
     }
 
+    @Override
     public void insert(int index, T entry) {
         if (index < 0 || index > size) {
             throw new IndexOutOfScopeException("Index out of scope: " + index);
@@ -106,20 +112,24 @@ public class LinkedListDS<T> {
         size++;
     }
 
+    @Override
     public void clear() {
         head = null;
         tail = null;
         size = 0;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
+    @Override
     public int size() {
         return size;
     }
 
+    @Override
     public void display() {
         StringBuilder displayString = new StringBuilder("[");
         Node<T> currentNode = head;
@@ -150,6 +160,7 @@ public class LinkedListDS<T> {
         head = prev;
     }
 
+    @Override
     public boolean contains(T entry) {
         Node<T> currentNode = head;
         while (currentNode != null) {
@@ -161,6 +172,7 @@ public class LinkedListDS<T> {
         return false;
     }
 
+    @Override
     public int indexOf(T entry) {
         Node<T> currentNode = head;
         int index = 0;
