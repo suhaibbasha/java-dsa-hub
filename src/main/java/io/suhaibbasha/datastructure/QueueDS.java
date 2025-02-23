@@ -37,12 +37,7 @@ public class QueueDS<T> implements ConstructableInterface<T> {
             throw new IndexOutOfScopeException("Queue is empty..");
         }
         T value = data[front];
-        if (front == rear - 1) {
-            front = -1;
-            rear = -1;
-        } else {
-            front++;
-        }
+        data[front++] = null;
         size--;
         return value;
     }
